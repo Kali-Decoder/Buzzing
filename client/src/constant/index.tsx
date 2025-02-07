@@ -130,6 +130,14 @@ export const Addresses = {
     usdeAddress:"0x426E7d03f9803Dd11cb8616C65b99a3c0AfeA6dE",
     conversionAddress:"0x7990300697D8514a84E5B9e5dFA39d58F48D4F19",
   },
+  "5003":{
+	name:"Mantle Speolia Testnet",
+	tokenAddress:"0x09788a0B60eCCd3FE8B951e181B2391e177dFdab",
+	mainContractAddress:"0x8Fc89849cdd463c9d75a9973C9683064FAa887e4",
+	nftContractAddress:"0x7F4bEa4b3D2fD1f5cE0a3C3F0C2f6Ff1e1Ff2f1",
+	usdeAddress:"0x0BbD9e9fD3f2F5B6E3D3A4eD7e9D1B1b1fD7D4e",
+	conversionAddress:"0x3A0Bd9e9fD3f2F5B6E3D3A4eD7e9D1B1b1fD7D4e",
+  }
 };
 export const conversionContractAbi =[
 	{
