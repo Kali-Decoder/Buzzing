@@ -638,11 +638,13 @@ function CreatePollBody() {
     setPollData((prev) => ({ ...prev, [name]: value }));
   };
   const handleCreatePoll = async () => {
-    let { pollName, deadline, question, link } = pollData;
+    let { pollName, deadline, question, link,model,keyword,type } = pollData;
     const dead = Math.floor(new Date(deadline).getTime() / 1000);
     const currentTimestamp = Math.floor(Date.now() / 1000); // Get current timestamp in seconds
     const timeRemaining = dead - currentTimestamp;
-    await createPool(question, pollName, timeRemaining);
+    let _type = type === "BINARY" ? 0 : 1;
+    console.log(pollData,timeRemaining);
+    await createPool(pollName,timeRemaining,question,link,model,keyword,_type);
   };
   return (
     <div className="flex justify-center items-center flex-col">
@@ -721,8 +723,8 @@ function CreatePollBody() {
               <option defaultValue="null" disabled>
                 Select an Poll Type
               </option>
-              <option value="twitter">Binary</option>
-              <option value="instagram">Range</option>
+              <option value="BINARY">Binary</option>
+              <option value="RANGE">Range</option>
             </select>
           </div>
           <div>

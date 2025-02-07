@@ -24,7 +24,15 @@ interface DataContextProps {
     contractAbi: any
   ) => Promise<Contract | undefined>;
   getTokenBalance: () => Promise<BigNumber | undefined>;
-  createPool: (name: string, desc: string, endtime: number) => Promise<void>;
+  createPool: (
+    pollName: string,
+    deadline: number,
+    question: string,
+    link: string,
+    parameter: string,
+    keyword: string,
+    type: number
+  ) => Promise<void>;
   placeBet: (
     poolId: number,
     amount: BigNumber,
@@ -132,8 +140,6 @@ const DataContextProvider: React.FC<DataContextProviderProps> = ({
     }
   };
 
-
-
   const convertUSDetoBuzz = async (amount: any) => {
     let id = toast.loading("Converting USDe to BUZZ...");
     try {
@@ -147,7 +153,7 @@ const DataContextProvider: React.FC<DataContextProviderProps> = ({
         Addresses[activeChain]?.usdeAddress,
         tokenAbi
       );
-     
+
       if (tokenContract) {
         const allowance = await tokenContract.allowance(
           address,
@@ -168,13 +174,12 @@ const DataContextProvider: React.FC<DataContextProviderProps> = ({
         return;
       }
     } catch (error) {
-    console.log("Error in converting USDe to BUZZ", error);
+      console.log("Error in converting USDe to BUZZ", error);
       toast.error("Error in converting USDe to BUZZ", { id });
     }
-  }
+  };
 
-
-  const convertBuzztoUSDe = async (amount:any) => {
+  const convertBuzztoUSDe = async (amount: any) => {
     let id = toast.loading("Converting BUZZ to USDe...");
     try {
       amount = ethers.utils.parseEther(amount.toString());
@@ -187,7 +192,7 @@ const DataContextProvider: React.FC<DataContextProviderProps> = ({
         Addresses[activeChain]?.tokenAddress,
         tokenAbi
       );
-   
+
       if (tokenContract) {
         const allowance = await tokenContract.allowance(
           address,
@@ -211,7 +216,7 @@ const DataContextProvider: React.FC<DataContextProviderProps> = ({
       console.log("Error in converting BUZZ to USDe", error);
       toast.error("Error in converting BUZZ to USDe", { id });
     }
-  }
+  };
 
   const mintNft = async () => {
     let id = toast.loading("Minting NFT...");
@@ -238,7 +243,15 @@ const DataContextProvider: React.FC<DataContextProviderProps> = ({
     }
   };
 
-  const createPool = async (name: string, desc: string, endtime: number) => {
+  const createPool = async (
+    pollName: string,
+    deadline: number,
+    question: string,
+    link: string,
+    parameter: string,
+    keyword: string,
+    type: number
+  ) => {
     console.log("Creating pool");
     let id = toast.loading("Creating pool...");
     try {
@@ -247,7 +260,14 @@ const DataContextProvider: React.FC<DataContextProviderProps> = ({
         mainContractABI
       );
       if (mainContract) {
-        const tx = await mainContract.createPool(name, desc, endtime);
+        const tx = await mainContract.createPool(
+          question,
+          link,
+          parameter,
+          keyword,
+          type,
+          deadline
+        );
         await tx.wait();
         await getPoolsDetails();
         toast.success("Pool created successfully", { id });
@@ -499,7 +519,7 @@ const DataContextProvider: React.FC<DataContextProviderProps> = ({
         mintNft,
         nftMintedAllReady,
         convertUSDetoBuzz,
-        convertBuzztoUSDe
+        convertBuzztoUSDe,
       }}
     >
       {children}

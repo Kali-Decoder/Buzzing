@@ -220,7 +220,7 @@ const LaunchPage: React.FC = () => {
           )}
           {/* User Profile */}
 
-          <div className="mt-4 absolute bottom-[16%]">
+          <div className="mt-4 absolute bottom-[20%]">
             <ConnectButton chainStatus={false} showBalance={false} />
           </div>
           <div className="mt-auto flex items-center p-3 border-t">

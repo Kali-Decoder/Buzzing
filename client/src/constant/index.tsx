@@ -134,9 +134,9 @@ export const Addresses = {
 	name:"Mantle Speolia Testnet",
 	tokenAddress:"0x09788a0B60eCCd3FE8B951e181B2391e177dFdab",
 	mainContractAddress:"0x8Fc89849cdd463c9d75a9973C9683064FAa887e4",
-	nftContractAddress:"0x7F4bEa4b3D2fD1f5cE0a3C3F0C2f6Ff1e1Ff2f1",
-	usdeAddress:"0x0BbD9e9fD3f2F5B6E3D3A4eD7e9D1B1b1fD7D4e",
-	conversionAddress:"0x3A0Bd9e9fD3f2F5B6E3D3A4eD7e9D1B1b1fD7D4e",
+	nftContractAddress:"0x371907DA46F9771189C068864115a4e84a227469",
+	usdeAddress:"",
+	conversionAddress:"",
   }
 };
 export const conversionContractAbi =[
