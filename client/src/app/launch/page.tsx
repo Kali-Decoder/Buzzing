@@ -66,9 +66,7 @@ const LaunchPage: React.FC = () => {
     convertBuzztoUSDe,
   } = useDataContext();
 
-  const [transformedPoolsData, setTransformedPoolsData] = useState<PoolData[]>(
-    []
-  );
+ 
   const [isBetted, setIsBetted] = useState(false);
   const [investment, setInvestment] = useState(0);
   const [scorePrediction, setScorePrediction] = useState(0);
@@ -161,26 +159,7 @@ const LaunchPage: React.FC = () => {
     await mintNft();
   };
 
-  useEffect(() => {
-    if (totalPools?.length) {
-      setTransformedPoolsData(
-        totalPools.map((pool: any) => ({
-          id: pool?.poolId,
-          name: `#${String(pool?.poolId).padStart(2, "0")}`,
-          question: pool?.question,
-          description: pool?.description,
-          category: "Crypto",
-          total_amount: pool?.total_amount || 0,
-          total_bets: pool?.total_bets || 0,
-          finalScore: pool?.finalScore || null,
-          startTime: pool?.startTime || Math.floor(Date.now() / 1000),
-          endTime: pool?.endTime || 1735689600,
-          resultDeclareTime: pool?.resultDeclareTime || 1735776000,
-          poolEnded: !!pool?.poolEnded,
-        }))
-      );
-    }
-  }, [totalPools]);
+
 
   const handleMax = () => {
     setInvestment(tokenBalance?.buzzBalance);
@@ -202,7 +181,7 @@ const LaunchPage: React.FC = () => {
       <div className="w-[85%] h-[90%] shadow-lg rounded-lg flex overflow-hidden">
         {/* Sidebar */}
         <aside className="w-64 bg-change-secondary-bg shadow-lg p-4 flex flex-col">
-          <h1 className="text-2xl font-bold text-white"> 💰 BUZZIFY 💸</h1>
+          <h1 className="text-2xl font-bold text-white"> 🪰 Bu<b className="text-blue-500">$$</b>ing </h1>
           {address && (
             <nav className="flex flex-col mt-6 space-y-3">
               {sidebarItems.map((item) => (
@@ -304,7 +283,7 @@ const LaunchPage: React.FC = () => {
             {selected === "Explore" && !selectedPost && address && (
               <>
                 <ExploreBody
-                  transformedPoolsData={transformedPoolsData}
+                  transformedPoolsData={totalPools}
                   setSelectedPost={setSelectedPost}
                 />
               </>

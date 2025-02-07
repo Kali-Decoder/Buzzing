@@ -656,7 +656,7 @@ function CreatePollBody() {
         {/* Deployment Info */}
         <button className="flex items-center text-gray-200 text-sm mx-auto mb-4">
           <IoInformationCircleOutline className="mr-1 text-lg" />
-          Deployment Cost Info
+          Deployment Cost Info (100 Wei Cost)
         </button>
 
         {/* Form Fields */}
@@ -773,11 +773,11 @@ function CreatePollBody() {
                   <option defaultValue="null" disabled>
                     Select an Parameter
                   </option>
-                  <option value="twitter">Followers</option>
-                  <option value="instagram">Retweets</option>
-                  <option value="sport">Shares</option>
-                  <option value="farcaster">Likes</option>
-                  <option value="farcaster">Comments</option>
+                  <option value="followers">Followers</option>
+                  <option value="retweets">Retweets</option>
+                  <option value="shares">Shares</option>
+                  <option value="likes">Likes</option>
+                  <option value="comments">Comments</option>
                 </select>
               </div>
             </>

@@ -6,8 +6,6 @@ import toast from "react-hot-toast";
 import {
   tokenAbi,
   mainContractABI,
-  oracleAbi,
-  oracleAddress,
   Addresses,
   nftContractAbi,
   conversionContractAbi,
@@ -252,9 +250,9 @@ const DataContextProvider: React.FC<DataContextProviderProps> = ({
     keyword: string,
     type: number
   ) => {
-    console.log("Creating pool");
     let id = toast.loading("Creating pool...");
     try {
+      console.log("Creating pool", ethers.utils.formatEther("100"));
       const mainContract = await getContractInstance(
         Addresses[activeChain]?.mainContractAddress,
         mainContractABI
@@ -267,14 +265,19 @@ const DataContextProvider: React.FC<DataContextProviderProps> = ({
           keyword,
           type,
           deadline
-        );
+        ,{
+          from: address,
+          value: BigNumber.from(ethers.utils.parseEther("100")), 
+        });
+        
+
         await tx.wait();
         await getPoolsDetails();
         toast.success("Pool created successfully", { id });
       }
       return;
     } catch (error) {
-      console.log("Error in creating pool");
+      console.log("Error in creating pool",error);
       toast.error("Error in creating pool", { id });
       return;
     }
@@ -373,25 +376,6 @@ const DataContextProvider: React.FC<DataContextProviderProps> = ({
     }
   };
 
-  const getOracleData = async () => {
-    try {
-      let oracleContract = await getContractInstance(oracleAddress, oracleAbi);
-      console.log("oracleContract", oracleContract);
-      console.log(signer);
-      if (oracleContract) {
-        let data1 = await oracleContract.read("BTC/USD");
-        let data2 = await oracleContract.read("ETH/USD");
-
-        console.log("Oracle data", (+data1.toString() / 10 ** 18).toFixed(2));
-        console.log("Oracle data", (+data2.toString() / 10 ** 18).toFixed(2));
-
-        setBtcUsdPrice((+data1.toString() / 10 ** 18).toFixed(2));
-        setEthUsdPrice((+data2.toString() / 10 ** 18).toFixed(2));
-      }
-    } catch (error) {
-      console.log("Error in getting oracle data", error);
-    }
-  };
 
   const getPoolsDetails = async () => {
     let poolDetails = {
@@ -415,7 +399,10 @@ const DataContextProvider: React.FC<DataContextProviderProps> = ({
           let poolObj = {
             poolId: i,
             question: pool.question,
-            description: pool.description,
+            url: pool.url,
+            parameter: pool.parameter,
+            category: pool.category,
+            poll_type: pool.poll_type,
             total_amount: +pool.total_amount
               .div(BigNumber.from(10).pow(18))
               .toString(),
@@ -481,7 +468,6 @@ const DataContextProvider: React.FC<DataContextProviderProps> = ({
     if (!signer) return;
     getTokenBalance();
     getPoolsDetails();
-    getOracleData();
     isNftMinted();
   }, [signer]);
 

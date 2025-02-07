@@ -1524,7 +1524,7 @@ export const tokenAbi =[
 		"type": "function"
 	}
 ];
-export const mainContractABI = [
+export const mainContractABI =[
 	{
 		"inputs": [
 			{
@@ -1581,42 +1581,6 @@ export const mainContractABI = [
 		"type": "event"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_pool_id",
-				"type": "uint256"
-			}
-		],
-		"name": "claimBet",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_poolName",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_poolDiscription",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_endTime",
-				"type": "uint256"
-			}
-		],
-		"name": "createPool",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -1636,62 +1600,29 @@ export const mainContractABI = [
 		"type": "event"
 	},
 	{
-		"inputs": [
+		"inputs": [],
+		"name": "FEE",
+		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "_amount",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_targetScore",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_pool_id",
+				"name": "",
 				"type": "uint256"
 			}
 		],
-		"name": "placeBet",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
-		"inputs": [
+		"inputs": [],
+		"name": "REWARD",
+		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "_pool_id",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_finalScore",
+				"name": "",
 				"type": "uint256"
 			}
 		],
-		"name": "setResult",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "amount",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "_receiver",
-				"type": "address"
-			}
-		],
-		"name": "withdraw",
-		"outputs": [],
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -1739,16 +1670,54 @@ export const mainContractABI = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "FEE",
-		"outputs": [
+		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "_pool_id",
 				"type": "uint256"
 			}
 		],
-		"stateMutability": "view",
+		"name": "claimBet",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_poolName",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_url",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_parameter",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_category",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_polltype",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_endTime",
+				"type": "uint256"
+			}
+		],
+		"name": "createPool",
+		"outputs": [],
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -1789,7 +1758,7 @@ export const mainContractABI = [
 						"type": "bool"
 					}
 				],
-				"internalType": "struct BuzziFi.Bet[]",
+				"internalType": "struct Buzzify.Bet[]",
 				"name": "",
 				"type": "tuple[]"
 			}
@@ -1827,6 +1796,29 @@ export const mainContractABI = [
 		"inputs": [
 			{
 				"internalType": "uint256",
+				"name": "_amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_targetScore",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_pool_id",
+				"type": "uint256"
+			}
+		],
+		"name": "placeBet",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -1840,7 +1832,17 @@ export const mainContractABI = [
 			},
 			{
 				"internalType": "string",
-				"name": "description",
+				"name": "url",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "parameter",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "category",
 				"type": "string"
 			},
 			{
@@ -1874,6 +1876,11 @@ export const mainContractABI = [
 				"type": "uint256"
 			},
 			{
+				"internalType": "enum Buzzify.POLL_TYPE",
+				"name": "poll_type",
+				"type": "uint8"
+			},
+			{
 				"internalType": "bool",
 				"name": "poolEnded",
 				"type": "bool"
@@ -1884,15 +1891,27 @@ export const mainContractABI = [
 	},
 	{
 		"inputs": [],
-		"name": "REWARD",
-		"outputs": [
+		"name": "receive",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "_pool_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_finalScore",
 				"type": "uint256"
 			}
 		],
-		"stateMutability": "view",
+		"name": "setResult",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -1906,6 +1925,24 @@ export const mainContractABI = [
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "_receiver",
+				"type": "address"
+			}
+		],
+		"name": "withdraw",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ];
