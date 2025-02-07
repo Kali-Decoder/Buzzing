@@ -130,7 +130,7 @@ const BalanceScore: React.FC<BalanceScoreProps> = ({
                   alt="MNT"
                   className="w-6 h-6 mr-2"
                 />
-                <span>ETHENA</span>
+                <span>Mantle</span>
               </div>
               <div className="text-right">
                 <p className="font-semibold">0 sUSDE</p>
@@ -682,7 +682,7 @@ function CreatePollBody() {
         {/* Deployment Info */}
         <button className="flex items-center text-gray-200 text-sm mx-auto mb-4">
           <IoInformationCircleOutline className="mr-1 text-lg" />
-          Deployment Cost Info (100 Wei Cost)
+          Deployment Cost Info <span className="text-red text-xs ml-4"> (100 Wei Cost)</span>
         </button>
 
         {/* Form Fields */}
