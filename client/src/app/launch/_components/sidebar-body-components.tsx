@@ -8,7 +8,7 @@ import Slider from "react-input-slider";
 import { LuArrowUpDown } from "react-icons/lu";
 import Link from "next/link";
 import { IoInformationCircleOutline } from "react-icons/io5";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 interface RewardsSectionProps {
@@ -411,12 +411,22 @@ function SelectedPost({
   investment,
   setInvestment,
   tokenBalance,
-  isBetted,
   handleSubmit,
   handleMax,
 }: any) {
-  const { formatTimestamp } = useDataContext();
-
+  const { formatTimestamp, userBetsData } = useDataContext();
+  const [isBetted, setIsBetted] = useState(false);
+  useEffect(() => {
+    console.log("userBetsData", userBetsData);
+    const val =
+      userBetsData &&
+      userBetsData?.find((item) => item?.poolId === selectedPost?.poolId);
+    if (val) {
+      setIsBetted(true);
+    } else {
+      setIsBetted(false);
+    }
+  }, [userBetsData]);
   return (
     <>
       {selectedPost?.question ? (
@@ -682,7 +692,8 @@ function CreatePollBody() {
         {/* Deployment Info */}
         <button className="flex items-center text-gray-200 text-sm mx-auto mb-4">
           <IoInformationCircleOutline className="mr-1 text-lg" />
-          Deployment Cost Info <span className="text-red text-xs ml-4"> (100 Wei Cost)</span>
+          Deployment Cost Info{" "}
+          <span className="text-red text-xs ml-4"> (100 Wei Cost)</span>
         </button>
 
         {/* Form Fields */}

@@ -30,16 +30,17 @@ import {
 import toast from "react-hot-toast";
 
 interface PoolData {
-  id: any;
-  name: string;
-  description: string;
+  poolId: number;
+  question: string;
   category: string;
-  total_amount: any;
-  total_bets: any;
-  finalScore: any;
-  startTime: any;
-  endTime: any;
-  resultDeclareTime: any;
+  parameter: string;
+  pollType: number;
+  totalAmount: number;
+  totalBets: number;
+  finalScore: number;
+  startTime: number;
+  endTime: number;
+  resultDeclareTime: number;
   poolEnded: boolean;
 }
 
@@ -58,7 +59,7 @@ const LaunchPage: React.FC = () => {
   const {
     totalPools,
     tokenBalance,
-    userBetsData,
+
     placeBet,
     mintNft,
     nftMintedAllReady,
@@ -67,7 +68,7 @@ const LaunchPage: React.FC = () => {
   } = useDataContext();
 
  
-  const [isBetted, setIsBetted] = useState(false);
+
   const [investment, setInvestment] = useState(0);
   const [scorePrediction, setScorePrediction] = useState(0);
   const [selected, setSelected] = useState("Explore");
@@ -90,8 +91,8 @@ const LaunchPage: React.FC = () => {
   const [isTransacting, setIsTransacting] = useState(false);
 
   const handleSubmit = async () => {
-    console.log(selectedPost?.id, scorePrediction, investment);
-    await placeBet(+selectedPost?.id, +investment.toString(), scorePrediction);
+    console.log(selectedPost?.poolId, scorePrediction, investment);
+    await placeBet(+selectedPost?.poolId, +investment.toString(), scorePrediction);
   };
 
   const handleSwap = () => {
@@ -165,16 +166,7 @@ const LaunchPage: React.FC = () => {
     setInvestment(tokenBalance?.buzzBalance);
   };
 
-  useEffect(() => {
-    const val =
-      userBetsData?.length > 0 &&
-      userBetsData?.find((item) => item?.poolId == selectedPost?.id);
-    if (val) {
-      setIsBetted(true);
-    } else {
-      setIsBetted(false);
-    }
-  }, [userBetsData]);
+
 
   return (
     <div className="flex items-center justify-center h-[100vh] bg-change-primary-bg orbitron-launch">
@@ -293,7 +285,6 @@ const LaunchPage: React.FC = () => {
               <>
                 <SelectedPost
                   selectedPost={selectedPost}
-                  isBetted={isBetted}
                   investment={investment}
                   setInvestment={setInvestment}
                   scorePrediction={scorePrediction}
