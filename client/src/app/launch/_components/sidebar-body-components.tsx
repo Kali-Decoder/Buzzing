@@ -568,6 +568,7 @@ function CreatePollBody() {
     model: "",
     keyword: "",
     question: "",
+    type:""
   });
   const { address } = useAccount();
   let { createPool } = useDataContext();
@@ -681,7 +682,7 @@ function CreatePollBody() {
               className="w-full p-3 bg-change-secondary-bg  text-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-3 gap-4">
             <input
               type="datetime-local"
               name="deadline"
@@ -706,6 +707,22 @@ function CreatePollBody() {
               <option value="instagram">Instagram</option>
               <option value="sport">Sports</option>
               <option value="farcaster">Farcaster</option>
+            </select>
+
+            <select
+              name="type"
+              value={pollData.type}
+              onChange={(e) => {
+                console.log(e.target.value);
+                setPollData({ ...pollData, type: e.target.value });
+              }}
+              className="w-full p-3 bg-change-secondary-bg text-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option defaultValue="null" disabled>
+                Select an Poll Type
+              </option>
+              <option value="twitter">Binary</option>
+              <option value="instagram">Range</option>
             </select>
           </div>
           <div>

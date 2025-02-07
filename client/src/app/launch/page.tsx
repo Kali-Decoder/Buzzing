@@ -4,6 +4,7 @@ import { useAccount } from "wagmi";
 import { useDataContext } from "@/context/DataContext";
 import { MdOutlineSettings } from "react-icons/md";
 import { FaFaceSmileWink } from "react-icons/fa6";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 import {
   RewardsSection,
   BalanceScore,
@@ -24,7 +25,6 @@ import {
   ExchangeHeader,
   AssetsHeader,
   LeaderboardHeader,
-  MyVotesHeader,
   HistoryHeader,
 } from "./_components/sidebar-header-components";
 import toast from "react-hot-toast";
@@ -203,20 +203,26 @@ const LaunchPage: React.FC = () => {
         {/* Sidebar */}
         <aside className="w-64 bg-change-secondary-bg shadow-lg p-4 flex flex-col">
           <h1 className="text-2xl font-bold text-white"> 💰 BUZZIFY 💸</h1>
-          <nav className="flex flex-col mt-6 space-y-3">
-            {sidebarItems.map((item) => (
-              <SidebarItem
-                key={item}
-                label={item}
-                active={selected === item}
-                onClick={() => {
-                  setSelected(item);
-                  setSelectedPost(null);
-                }}
-              />
-            ))}
-          </nav>
+          {address && (
+            <nav className="flex flex-col mt-6 space-y-3">
+              {sidebarItems.map((item) => (
+                <SidebarItem
+                  key={item}
+                  label={item}
+                  active={selected === item}
+                  onClick={() => {
+                    setSelected(item);
+                    setSelectedPost(null);
+                  }}
+                />
+              ))}
+            </nav>
+          )}
           {/* User Profile */}
+
+          <div className="mt-4 absolute bottom-[16%]">
+            <ConnectButton chainStatus={false} showBalance={false} />
+          </div>
           <div className="mt-auto flex items-center p-3 border-t">
             <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-md">
               <FaFaceSmileWink size={20} />
@@ -243,12 +249,12 @@ const LaunchPage: React.FC = () => {
         <div className="flex-1 flex flex-col">
           {/* Header */}
           <header className="flex items-center bg-change-secondary-bg  opacity-90 shadow-lg px-4 py-3 justify-center">
-            {selected === "Explore" && !selectedPost && (
+            {selected === "Explore" && !selectedPost && address && (
               <>
                 <ExploreHeader />
               </>
             )}
-            {selected === "Explore" && selectedPost && (
+            {selected === "Explore" && selectedPost && address && (
               <>
                 <SelectedPostHeader
                   selectedPost={selectedPost}
@@ -256,37 +262,37 @@ const LaunchPage: React.FC = () => {
                 />
               </>
             )}
-            {selected === "History" && (
+            {selected === "History" && address && (
               <>
                 <HistoryHeader />
               </>
             )}
-            {selected === "Create" && (
+            {selected === "Create" && address && (
               <>
                 <CreatePollHeader />
               </>
             )}
-            {selected === "Settings" && (
+            {selected === "Settings" && address && (
               <>
                 <SettingsHeader />
               </>
             )}
-            {selected === "Exchange" && (
+            {selected === "Exchange" && address && (
               <>
                 <ExchangeHeader />
               </>
             )}
-            {selected === "Assets" && (
+            {selected === "Assets" && address && (
               <>
                 <AssetsHeader />
               </>
             )}
-            {selected === "Leaderboard" && (
+            {selected === "Leaderboard" && address && (
               <>
                 <LeaderboardHeader />
               </>
             )}{" "}
-            {selected === "Rewards" && (
+            {selected === "Rewards" && address && (
               <>
                 <RewardHeader />
               </>
@@ -295,7 +301,7 @@ const LaunchPage: React.FC = () => {
 
           {/* Content Section */}
           <div className="p-6 bg-change-secondary-bg shadow-lg h-full overflow-y-scroll scrollbar-thin">
-            {selected === "Explore" && !selectedPost && (
+            {selected === "Explore" && !selectedPost && address && (
               <>
                 <ExploreBody
                   transformedPoolsData={transformedPoolsData}
@@ -303,8 +309,8 @@ const LaunchPage: React.FC = () => {
                 />
               </>
             )}
-            {selected === "Settings" && <SettingsCard />}
-            {selectedPost && (
+            {selected === "Settings" && address && <SettingsCard />}
+            {selectedPost && address && (
               <>
                 <SelectedPost
                   selectedPost={selectedPost}
@@ -318,14 +324,14 @@ const LaunchPage: React.FC = () => {
                 />
               </>
             )}
-            {selected === "Rewards" && (
+            {selected === "Rewards" && address && (
               <RewardsSection
                 onClick={mintYourNft}
                 nftMintedAllReady={nftMintedAllReady}
               />
             )}
 
-            {selected === "Assets" && (
+            {selected === "Assets" && address && (
               <>
                 <div className="flex justify-center items-center flex-col">
                   <BalanceScore
@@ -335,7 +341,7 @@ const LaunchPage: React.FC = () => {
                 </div>
               </>
             )}
-            {selected === "Exchange" && (
+            {selected === "Exchange" && address && (
               <>
                 <ExchangeComponent
                   fromToken={fromToken}
@@ -350,10 +356,10 @@ const LaunchPage: React.FC = () => {
                 />
               </>
             )}
-            {selected === "Leaderboard" && <LeaderBoardCard />}
-            {selected === "Create" && <CreatePollBody />}
+            {selected === "Leaderboard" && address && <LeaderBoardCard />}
+            {selected === "Create" && address && <CreatePollBody />}
 
-            {selected === "History" && (
+            {selected === "History" && address && (
               <>
                 <HistoryBody />
               </>

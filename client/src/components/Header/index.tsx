@@ -2,21 +2,18 @@
 import { Link as LinkScroll } from "react-scroll";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
-import { ConnectButton2 } from "./ConnectButton";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount } from "wagmi";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import ChainDropdown from "../ChainDropdown/index";
 const Header = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false); // Hydration check
   const { isConnected } = useAccount();
 
-  const pathname=usePathname();
-  
+  const pathname = usePathname();
+
   useEffect(() => {
     // Set hydration to true when the component is mounted
     setHydrated(true);
@@ -46,7 +43,6 @@ const Header = () => {
     </LinkScroll>
   );
 
- 
   const NavLinkPage = ({ title, href }: { title: string; href: string }) => {
     const isActive = pathname === href;
 
@@ -55,7 +51,7 @@ const Header = () => {
         href={href}
         className={clsx(
           "base-bold  uppercase transition-colors duration-500 cursor-pointer hover:text-p1 max-lg:my-4 max-lg:h5",
-          isActive ? "text-p1" :"text-p4"
+          isActive ? "text-p1" : "text-p4"
         )}
       >
         {title}
@@ -71,13 +67,16 @@ const Header = () => {
       )}
     >
       <div className="container flex h-14 items-center justify-between max-lg:px-5">
-
-       
         <div className="flex items-center space-x-8">
-       
           <div className="nav-logo">
             <Link href="/">
-              <Image src="/images/buzz.svg" alt="Logo" className="h-10 w-auto" height={40} width={40} />
+              <Image
+                src="/images/buzz.svg"
+                alt="Logo"
+                className="h-10 w-auto"
+                height={40}
+                width={40}
+              />
             </Link>
           </div>
 
@@ -88,21 +87,6 @@ const Header = () => {
                 <>
                   <li className="nav-li">
                     <NavLinkPage title="Home" href="/" />
-                  </li>
-                  <li className="nav-li">
-                    <NavLinkPage title="Dashboard" href="/dashboard" />
-                  </li>
-                  <li className="nav-li">
-                    <NavLinkPage title="Explore" href="/explore" />
-                  </li>
-                  <li className="nav-li">
-                    <NavLinkPage title="Coins" href="/coins" />
-                  </li>
-                  <li className="nav-li">
-                    <NavLinkPage title="Sportify" href="/sport" />
-                  </li>
-                  <li className="nav-li">
-                    <NavLinkPage title="One-X-One" href="/1v1" />
                   </li>
                 </>
               ) : (
@@ -119,14 +103,6 @@ const Header = () => {
           </nav>
         </div>
 
-        
-        <div className="flex items-center space-x-6">
-          {/* <ChainDropdown /> */}
-          {/* {!isOpen && <ConnectButton2 />} */}
-          <ConnectButton accountStatus="avatar" chainStatus="icon" />
-        </div>
-
-       
         <button
           className="lg:hidden z-2 size-10 border-2 border-s4/25 rounded-full flex justify-center items-center"
           onClick={() => setIsOpen((prevState) => !prevState)}
@@ -145,47 +121,22 @@ const Header = () => {
       <div
         className={clsx(
           "w-full max-lg:fixed max-lg:top-0 max-lg:left-0 max-lg:w-full max-lg:bg-s2 max-lg:opacity-0",
-          isOpen ? "max-lg:opacity-100 max-lg:pointer-events-auto" : "max-lg:pointer-events-none hidden"
+          isOpen
+            ? "max-lg:opacity-100 max-lg:pointer-events-auto"
+            : "max-lg:pointer-events-none hidden"
         )}
       >
         <div className="max-lg:relative max-lg:flex max-lg:flex-col max-lg:min-h-screen max-lg:p-6 max-lg:overflow-hidden sidebar-before max-md:px-4">
           <nav className="max-lg:relative max-lg:z-2 max-lg:my-auto">
             <ul className="flex max-lg:block max-lg:px-12">
-              {isConnected ? (
-                <>
-                  <li className="nav-li">
-                    <NavLinkPage title="Home" href="/" />
-                  </li>
-                  <li className="nav-li">
-                    <NavLinkPage title="Dashboard" href="/dashboard" />
-                  </li>
-                  <li className="nav-li">
-                    <NavLinkPage title="Explore" href="/explore" />
-                  </li>
-            
-                  <li className="nav-li">
-                    <NavLinkPage title="Activity" href="/profile" />
-                  </li>
-                  <li className="nav-li">
-                    <NavLinkPage title="One-X-One" href="/1v1" />
-                  </li>
-                </>
-              ) : (
-                <>
-                  <li className="nav-li">
-                    <NavLinkScroll title="features" />
-                  </li>
-                  <li className="nav-li">
-                    <NavLinkScroll title="faq" />
-                  </li>
-                </>
-              )}
-              <li className="nav-li mb-4">
-                <ChainDropdown />
-              </li>
-              <li className="nav-li mt-4">
-                <ConnectButton2 />
-              </li>
+              <>
+                <li className="nav-li">
+                  <NavLinkScroll title="features" />
+                </li>
+                <li className="nav-li">
+                  <NavLinkScroll title="faq" />
+                </li>
+              </>
             </ul>
           </nav>
 
