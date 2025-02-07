@@ -119,15 +119,15 @@ const DataContextProvider: React.FC<DataContextProviderProps> = ({
   const getTokenBalance = async () => {
     try {
       const tokenContract = await getContractInstance(
-        Addresses[activeChain]?.conversionAddress,
-        conversionContractAbi
+        Addresses[activeChain]?.tokenAddress,
+        tokenAbi
       );
       if (tokenContract) {
         console.log("Token contract", tokenContract);
-        let balance = await tokenContract.getUserBalances();
+        let balance = await tokenContract.balanceOf(address);
         setTokenBalance({
-          usdeBalance: +balance[0].div(BigNumber.from(10).pow(18)).toString(),
-          buzzBalance: +balance[1].div(BigNumber.from(10).pow(18)).toString(),
+          usdeBalance: +balance.div(BigNumber.from(10).pow(18)).toString(),
+          buzzBalance: 0,
         });
         console.log("Token balance", balance);
         return balance;

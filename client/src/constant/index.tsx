@@ -135,7 +135,7 @@ export const Addresses = {
 	tokenAddress:"0x09788a0B60eCCd3FE8B951e181B2391e177dFdab",
 	mainContractAddress:"0x8Fc89849cdd463c9d75a9973C9683064FAa887e4",
 	nftContractAddress:"0x371907DA46F9771189C068864115a4e84a227469",
-	usdeAddress:"",
+	usdeAddress:"0xF9173645D5A391d9Fb29Fc3438024499E3AC5eD0",
 	conversionAddress:"",
   }
 };

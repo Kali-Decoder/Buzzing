@@ -1,4 +1,5 @@
 import { useDataContext } from "@/context/DataContext";
+import Link from "next/link";
 import React from "react";
 
 import { RiRadioButtonLine } from "react-icons/ri";
@@ -33,8 +34,7 @@ const PostComponent = ({
       >
         <h2 className="font-bold text-md text-white">{item?.question}</h2>
         <p className="text-xs text-gray-200">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis,
-          ex!
+          Read More : <Link href={`${item?.url}`} className="text-blue-500">  {item?.url.slice(0,40)}...</Link>
         </p>
 
         <div className="text-blue-500 text-xs font-semibold space-x-2 uppercase">
@@ -42,13 +42,13 @@ const PostComponent = ({
           <span># {item?.parameter}</span>
         </div>
 
-        <div className="flex items-center justify-between text-sm text-gray-200">
+        <div className="flex items-center justify-between text-xs text-gray-200">
           <div className="flex items-center gap-2">
             <img
               src="https://pbs.twimg.com/profile_images/1884937424364851200/VSrPwZa4_400x400.jpg"
               className="w-8 h-8 rounded-full border border-gray-300"
             />
-            <span className="font-semibold">{item?.url}</span>
+            <span>@ NikkuDev</span>
           </div>
           <div className="flex items-center gap-3 text-xs">
             <span>💰 ${item?.total_amount}</span>

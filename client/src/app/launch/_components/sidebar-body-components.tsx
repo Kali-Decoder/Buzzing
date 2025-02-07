@@ -419,7 +419,7 @@ function SelectedPost({
 
   return (
     <>
-      {selectedPost?.name ? (
+      {selectedPost?.question ? (
         <div className="flex w-full gap-x-8 bg-change-secondary-bg  p-6 rounded text-white">
           <div className="w-[55%] overflow-y-scroll scrollbar-thin">
             {/* Header Section */}
@@ -430,9 +430,7 @@ function SelectedPost({
                   alt="User Avatar"
                   className="w-10 h-10 rounded-full"
                 />
-                <span className="font-semibold text-gray-200">
-                  {selectedPost?.name}
-                </span>
+                <span className="font-semibold text-gray-200">Nikku</span>
                 <span className="text-blue-500">💎</span>
               </div>
               <div className="flex items-center gap-1 text-gray-200">
@@ -463,15 +461,20 @@ function SelectedPost({
               <h2 className="font-bold text-lg text-white">
                 {selectedPost?.question}
               </h2>
-              <p className="text-gray-300 text-sm mt-1">
-                {selectedPost?.description}
-              </p>
+              <div className="text-gray-300 text-sm mt-2">
+                <iframe
+                  src="https://x.com/itsNikku876"
+                  width="600"
+                  height="400"
+                  title="The client-side of the web"
+                ></iframe>
+              </div>
             </div>
 
             {/* Hashtags */}
-            <div className="mt-2 text-blue-500 text-sm font-medium">
-              <span>#Sports</span> <span>#Celebrities</span>{" "}
-              <span>#Pop Culture</span>
+            <div className="mt-2 text-blue-500 text-md font-medium">
+              <span># {selectedPost.category}</span>{" "}
+              <span># {selectedPost.parameter}</span>
             </div>
 
             {/* Image */}
@@ -491,16 +494,35 @@ function SelectedPost({
               {/* From Input */}
 
               <div className=" flex px-4 flex-col-reverse bg-change-secondary-bg rounded-sm p-4 items-start gap-2">
-                <label className="text-gray-200 text-xs">
-                  Score Prediction
-                </label>
-                <input
-                  type="number"
-                  value={scorePrediction}
-                  onChange={(e) => setScorePrediction(e.target.value)}
-                  className="w-full bg-transparent text-white outline-none text-sm"
-                  placeholder="Guess the Number"
-                />
+                {selectedPost.poll_type === 0 ? (
+                  <>
+                    <div className="grid grid-cols-2 gap-2 w-full">
+                      <button
+                        className={`bg-[#1B1B1A]  px-4 py-2 rounded-md hover:bg-blue-400 transition-colors`}
+                      >
+                        Yes
+                      </button>
+                      <button
+                        className={`bg-[#1B1B1A] px-4 py-2 rounded-md hover:bg-blue-400 transition-colors`}
+                      >
+                        No
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <label className="text-gray-200 text-xs">
+                      Score Prediction
+                    </label>
+                    <input
+                      type="number"
+                      value={scorePrediction}
+                      onChange={(e) => setScorePrediction(e.target.value)}
+                      className="w-full bg-transparent text-white outline-none text-sm"
+                      placeholder="Guess the Number"
+                    />
+                  </>
+                )}
               </div>
               <div className="mb-4 mt-4">
                 <div className="flex items-center bg-change-secondary-bg rounded-lg p-3">
@@ -520,14 +542,14 @@ function SelectedPost({
                   <span className="text-white ml-2 text-xs">BUZZ</span>
                 </div>
 
-                <div className="flex justify-between flex-col text-xs mt-4">
+                <div className="flex justify-between flex-col text-xs mt-8">
                   <span className="text-white"></span>
-                  <span className="text-white text-[12px]">
+                  <span className="text-white text-[16px]">
                     Balance:{" "}
                     {tokenBalance?.buzzBalance ? tokenBalance?.buzzBalance : 0}{" "}
                     BUZZ
                   </span>
-                  <span className="text-red text-[12px] mt-2">
+                  <span className="text-red text-[16px] mt-2">
                     PoolEnded : {formatTimestamp(selectedPost?.endTime)}
                   </span>
                 </div>
@@ -568,7 +590,7 @@ function CreatePollBody() {
     model: "",
     keyword: "",
     question: "",
-    type:""
+    type: "",
   });
   const { address } = useAccount();
   let { createPool } = useDataContext();
@@ -605,8 +627,6 @@ function CreatePollBody() {
       Done: true,
     });
 
-
-
     console.log(pollData);
   };
 
@@ -628,8 +648,6 @@ function CreatePollBody() {
       "Generating Questions": false,
       Done: true,
     });
-
-
   };
 
   const handlePollDataChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -638,13 +656,21 @@ function CreatePollBody() {
     setPollData((prev) => ({ ...prev, [name]: value }));
   };
   const handleCreatePoll = async () => {
-    let { pollName, deadline, question, link,model,keyword,type } = pollData;
+    let { pollName, deadline, question, link, model, keyword, type } = pollData;
     const dead = Math.floor(new Date(deadline).getTime() / 1000);
     const currentTimestamp = Math.floor(Date.now() / 1000); // Get current timestamp in seconds
     const timeRemaining = dead - currentTimestamp;
     let _type = type === "BINARY" ? 0 : 1;
-    console.log(pollData,timeRemaining);
-    await createPool(pollName,timeRemaining,question,link,model,keyword,_type);
+    console.log(pollData, timeRemaining);
+    await createPool(
+      pollName,
+      timeRemaining,
+      question,
+      link,
+      model,
+      keyword,
+      _type
+    );
   };
   return (
     <div className="flex justify-center items-center flex-col">
@@ -801,36 +827,42 @@ function CreatePollBody() {
             </>
           ) : null}
 
-          {pollData.link && pollData.model && pollData.keyword && questionState.Done &&  (
-            <>
-              <div>
-                <select 
-                name="question"
-                value={pollData.question} 
-                onChange={(e)=>setPollData({...pollData, question:e.target.value})}
-                className="w-full p-3 bg-change-secondary-bg text-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+          {pollData.link &&
+            pollData.model &&
+            pollData.keyword &&
+            questionState.Done && (
+              <>
+                <div>
+                  <select
+                    name="question"
+                    value={pollData.question}
+                    onChange={(e) =>
+                      setPollData({ ...pollData, question: e.target.value })
+                    }
+                    className="w-full p-3 bg-change-secondary-bg text-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  >
                     <option defaultValue="null" disabled>
-                    Select a Question
+                      Select a Question
                     </option>
                     <option value="Predict the total number of likes (range: 0-5000)">
-                    Predict the total number of likes (range: 0-5000)
+                      Predict the total number of likes (range: 0-5000)
                     </option>
                     <option value="Predict the number of retweets (range: 0-2000)">
-                    Predict the number of retweets (range: 0-2000)
+                      Predict the number of retweets (range: 0-2000)
                     </option>
                     <option value="Predict the total number of comments (range: 0-1000)">
-                    Predict the total number of comments (range: 0-1000)
+                      Predict the total number of comments (range: 0-1000)
                     </option>
                     <option value="Predict the number of shares (range: 0-1500)">
-                    Predict the number of shares (range: 0-1500)
+                      Predict the number of shares (range: 0-1500)
                     </option>
                     <option value="Predict the total number of followers (range: 0-20000)">
-                    Predict the total number of followers (range: 0-20000)
+                      Predict the total number of followers (range: 0-20000)
                     </option>
-                </select>
-              </div>
-            </>
-          )}
+                  </select>
+                </div>
+              </>
+            )}
           <button
             onClick={handleCreatePoll}
             className="w-full py-3 bg-blue-400 text-gray-800 rounded-md"
