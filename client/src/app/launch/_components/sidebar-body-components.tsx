@@ -472,12 +472,29 @@ function SelectedPost({
                 {selectedPost?.question}
               </h2>
               <div className="text-gray-300 text-sm mt-2">
-                <iframe
-                  src="https://x.com/itsNikku876"
-                  width="600"
-                  height="400"
-                  title="The client-side of the web"
-                ></iframe>
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <blockquote className="twitter-tweet">
+                  <p lang="en" dir="ltr">
+                    life update: i moved to mexico city!
+                    <br />
+                    <br />4 years of nomading was enough for this little soul
+                    <br />
+                    <br />
+                    you learn a lot from variety + freedom, but at the end of
+                    the day, humans need depth in relationships + the ability to
+                    find thrills in the mundane
+                    <br />
+                    <br />
+                    the best part: i found a place with…{" "}
+                    <a href="https://t.co/mcC13gR7Ez">
+                      pic.twitter.com/mcC13gR7Ez
+                    </a>
+                  </p>
+                  &mdash; kellykim (@kellykim_xyz){" "}
+                  <a href="https://twitter.com/kellykim_xyz/status/1871588049613987939?ref_src=twsrc%5Etfw">
+                    December 24, 2024
+                  </a>
+                </blockquote>
               </div>
             </div>
 
