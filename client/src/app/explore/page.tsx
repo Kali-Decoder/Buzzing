@@ -1,7 +1,5 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { exploreItems  } from "@/constant";
-import ExploreItem from "@/components/explore/ExploreItem";
 import MultiSelectDropdown from "@/components/explore/MultiSelectDropdown";
 
 const ExplorePage: React.FC = () => {
@@ -27,9 +25,6 @@ const ExplorePage: React.FC = () => {
     };
   }, [searchQuery]);
 
-  const filteredItems = exploreItems.filter((item) =>
-    item.name.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
-  );
 
   return (
     <section className="relative py-24 md:py-28 lg:py-30">
@@ -78,9 +73,7 @@ const ExplorePage: React.FC = () => {
         <div className="flex flex-col">
           <h1 className="text-xl mb-5">Top Creators</h1>
           <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
-            {filteredItems.map((item) => (
-              <ExploreItem key={item.id} item={item} />
-            ))}
+           
           </div>
         </div>
 
