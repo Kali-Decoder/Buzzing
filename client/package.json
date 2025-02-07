@@ -41,6 +41,7 @@
     "react-modal": "^3.16.1",
     "react-scroll": "^1.9.0",
     "react-slidedown": "^2.4.7",
+    "react-social-media-embed": "^2.5.17",
     "react-web-share": "^1.1.6",
     "styled-components": "^6.0.0-rc.2",
     "viem": "^2.7.15",

@@ -11,6 +11,7 @@ import { IoInformationCircleOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { XEmbed } from "react-social-media-embed";
 interface RewardsSectionProps {
   onClick: () => void;
   nftMintedAllReady: boolean;
@@ -472,29 +473,11 @@ function SelectedPost({
                 {selectedPost?.question}
               </h2>
               <div className="text-gray-300 text-sm mt-2">
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                <blockquote className="twitter-tweet">
-                  <p lang="en" dir="ltr">
-                    life update: i moved to mexico city!
-                    <br />
-                    <br />4 years of nomading was enough for this little soul
-                    <br />
-                    <br />
-                    you learn a lot from variety + freedom, but at the end of
-                    the day, humans need depth in relationships + the ability to
-                    find thrills in the mundane
-                    <br />
-                    <br />
-                    the best part: i found a place with…{" "}
-                    <a href="https://t.co/mcC13gR7Ez">
-                      pic.twitter.com/mcC13gR7Ez
-                    </a>
-                  </p>
-                  &mdash; kellykim (@kellykim_xyz){" "}
-                  <a href="https://twitter.com/kellykim_xyz/status/1871588049613987939?ref_src=twsrc%5Etfw">
-                    December 24, 2024
-                  </a>
-                </blockquote>
+                <XEmbed
+                  style={{ borderRadius: "none" }}
+                  url={selectedPost?.url}
+                  width="100%"
+                />
               </div>
             </div>
 
