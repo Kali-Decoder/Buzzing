@@ -267,7 +267,7 @@ const DataContextProvider: React.FC<DataContextProviderProps> = ({
           deadline
         ,{
           from: address,
-          value: BigNumber.from(ethers.utils.parseEther("100")), 
+          value: BigNumber.from(ethers.utils.parseUnits("100","wei")), 
         });
         
 

@@ -472,7 +472,7 @@ function SelectedPost({
                 {selectedPost?.question}
               </h2>
               <div className="text-gray-300 text-sm mt-2">
-              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                 <blockquote className="twitter-tweet">
                   <p lang="en" dir="ltr">
                     life update: i moved to mexico city!
