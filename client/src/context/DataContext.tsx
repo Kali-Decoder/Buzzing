@@ -42,8 +42,6 @@ interface DataContextProps {
   userBetsData: [] | undefined;
   loading: boolean;
   setResultScore: (poolId: number, score: number) => Promise<void>;
-  btcUsdPrice: number;
-  ethUsdPrice: number;
   isOpen: boolean;
   openSideBar: () => void;
   closeSideBar: () => void;
@@ -82,8 +80,6 @@ const DataContextProvider: React.FC<DataContextProviderProps> = ({
     chain?.id
   );
   const [loading, setLoading] = useState(false);
-  const [btcUsdPrice, setBtcUsdPrice] = useState(0);
-  const [ethUsdPrice, setEthUsdPrice] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [activePoolId, setActivePoolId] = useState(0);
   const openSideBar = () => {
@@ -494,8 +490,6 @@ const DataContextProvider: React.FC<DataContextProviderProps> = ({
         userBetsData,
         loading,
         setResultScore,
-        btcUsdPrice,
-        ethUsdPrice,
         isOpen,
         openSideBar,
         closeSideBar,
