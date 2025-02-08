@@ -1,4 +1,4 @@
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=1000&size=55&pause=1000&center=true&vCenter=true&width=1000&lines=BuzziFy;  Predict+Bet+Earn+Rewards" alt="Typing SVG" /></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=1000&size=55&pause=1000&center=true&vCenter=true&width=1000&lines=Buzzing;  Predict+Bet+Earn+Rewards" alt="Typing SVG" /></a>
 <br/> <br/> 
 ![c79a33af-ccb8-4f41-a434-83ac9298e3f6](https://github.com/user-attachments/assets/51d01ffc-9824-41a0-834c-822dc244b5c7)
 
@@ -11,12 +11,18 @@
 
 ## Key Features
 ### Here are the BuzzyFI features in point form:
-
 - **Monetize Your Existing Reels:** Turn your current reels into revenue-generating content.
 - **Upload Custom Reels:** Share and monetize your own custom-created reels.
 - **Invest in Favorite Creators' Reels:** Place an investment amount on your favorite content creators' reels for a specific tenure.
 - **Withdraw Rewards:** Redeem your earnings once the investment tenure is complete.
 - **Earn BuzziFy Tokens:** Gain BuzziFy tokens through a "Refer and Earn" program.
+- **Innovative Prediction Model:** Users wager on a precise engagement score, not just a binary outcome.
+- **Decentralized and Transparent:** Built on blockchain for trust and security.
+- **Advanced AI Integration:** Processes real-time data to ensure accurate and reliable predictions.
+- **Robust Verification:** Utilizes zkTLS to secure and verify betting outcomes.
+- **Wide Target Audience:** Appeals to all users aged 16 and up with low entry barriers.
+- **Community-Driven Growth:** Allows users to create their own pools for a nominal fee.
+- **Clear Market Gap:** No existing project focuses on range-based betting or content creator engagement derivatives.
 
 ## Technical Architecture
 <img width="1214" alt="Screenshot 2024-08-07 at 10 07 16 AM" src="https://quickest-reaction-568.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F12ef41c4-7fad-45c1-9929-2146ee112899%2Fa205bfa7-9207-459f-9792-966cc5e6d325%2FScreenshot_2024-09-26_162333.png?table=block&id=67b94f75-748f-4d7d-8219-41f47fdd1415&spaceId=12ef41c4-7fad-45c1-9929-2146ee112899&width=1420&userId=&cache=v2">
