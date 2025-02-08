@@ -36,7 +36,18 @@
 - Tailwind CSS
 - Solidity
 - Mantle Network
-- ZKTLS , 
+- ZKTLS , Meta LLaMA module produces questions based on the context
+
+
+## End-to-End Data Flow Summary
+
+- **Twitter Data Fetch**: Twitter API fetches posts and profile data.
+- **Data Preprocessing**: Context extraction, cleaning, and structuring.
+- **Question Generation**: Meta LLaMA module produces questions based on the context.
+- **Decentralized Scraping & Verification**: Pool over ZKTLS collects additional data, ensuring integrity.
+- **Prediction Processing**: The Prediction Engine processes verified data and generates outcomes.
+- **Smart Contract Execution**: Smart contracts distribute funds based on the predictions.
+- **Monitoring & Feedback**: Continuous system monitoring and feedback refine the overall process.
 
 
 ## Challenges and Solution
