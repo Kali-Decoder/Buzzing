@@ -3,7 +3,7 @@
 ![c79a33af-ccb8-4f41-a434-83ac9298e3f6](https://github.com/user-attachments/assets/51d01ffc-9824-41a0-834c-822dc244b5c7)
 
  <br/> <br/>
-# BuzziFy
+# Buzzing
 
 ### Prediction markets like Polymarket have skyrocketed in usage this year thanks to politics and sports betting. But what if there was a prediction market focused on social media and the internet arena?
 
