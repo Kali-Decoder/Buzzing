@@ -1,5 +1,5 @@
 import { http } from "viem";
-import { mantleSepoliaTestnet } from "wagmi/chains";
+import { mantleSepoliaTestnet,flowTestnet,arbitrumSepolia,baseSepolia } from "wagmi/chains";
 
 const bleTestnetNetwork = {
   id: 52085143,
@@ -17,8 +17,11 @@ const bleTestnetNetwork = {
   },
 };
 
-export const chainArray = [bleTestnetNetwork, mantleSepoliaTestnet];
+export const chainArray = [bleTestnetNetwork, mantleSepoliaTestnet,flowTestnet,arbitrumSepolia,baseSepolia];
 export const transportsObject = {
   [bleTestnetNetwork.id]: http(),
   [mantleSepoliaTestnet.id]: http(),
+  [flowTestnet.id]: http(),
+  [arbitrumSepolia.id]: http(),
+  [baseSepolia.id]: http(),
 };

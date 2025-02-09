@@ -131,7 +131,7 @@ const BalanceScore: React.FC<BalanceScoreProps> = ({
                   alt="MNT"
                   className="w-6 h-6 mr-2"
                 />
-                <span>Mantle</span>
+                <span>EVM Netowork</span>
               </div>
               <div className="text-right">
                 <p className="font-semibold">0 sUSDE</p>

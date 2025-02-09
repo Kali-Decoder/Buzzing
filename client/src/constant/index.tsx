@@ -15,6 +15,30 @@ export const Addresses = {
 	nftContractAddress:"0x371907DA46F9771189C068864115a4e84a227469",
 	usdeAddress:"0xF9173645D5A391d9Fb29Fc3438024499E3AC5eD0",
 	conversionAddress:"",
+  },
+  "545":{
+	name:"Flow Testnet",
+	tokenAddress:"0xBFff78BB02925E4D8671D0d90B2a6330fcAedd87",
+	mainContractAddress:"0x773d238b65af58c6F4c261332134b9A708BE3F1f",
+	nftContractAddress:"0x9d234b282e407Ba11BA1Ea6562b1c14A0F038D56",
+	usdeAddress:"0xF9173645D5A391d9Fb29Fc3438024499E3AC5eD0",
+	conversionAddress:"",
+  },
+  "421614":{
+	name:"Arbitrum Sepolia",
+	tokenAddress:"0x1950Df5cA963b4e1905a7A447998233F25E35F56",
+	mainContractAddress:"0xb66f0EE93858Dc56D001a0ACCd7Bacd3BD03310c",
+	nftContractAddress:"0x68535Fe8c173Ecc09fC51CBDa97d0A42a8244628",
+	usdeAddress:"0xF9173645D5A391d9Fb29Fc3438024499E3AC5eD0",
+	conversionAddress:"",
+  },
+  "84532":{
+	name:"Base Sepolia",
+	tokenAddress:"0x820C809550f51F22DC83F22E63C8b4C758769E31",
+	mainContractAddress:"0xf9Ccd4509d3049ceFe62F800a44b3d66943D0308",
+	nftContractAddress:"0xDb824e62128A515fe93BCA5449e4428d02538AE6",
+	usdeAddress:"0x7aACE2bDB79CC290d99Bddc034E04dA4e6E1CfA3",
+	conversionAddress:"",
   }
 };
 export const conversionContractAbi =[

@@ -35,7 +35,7 @@
 - Typescript
 - Tailwind CSS
 - Solidity
-- Mantle Network
+- EVM Network
 - ZKTLS , Meta LLaMA module produces questions based on the context
 
 
