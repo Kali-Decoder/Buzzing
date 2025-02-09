@@ -38,6 +38,20 @@
 - EVM Network
 - ZKTLS , Meta LLaMA module produces questions based on the context
 
+## Bounty Tracks 
+
+| **Network**    | **Contract Name**       | **Contract Address**                                                       | **URL**                                                                                                          |
+|----------------|-------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| **Flow**       | Buzzing Buzz Token      | 0xBFff78BB02925E4D8671D0d90B2a6330fcAedd87                                 | [FlowScan](https://evm-testnet.flowscan.io/address/0xBFff78BB02925E4D8671D0d90B2a6330fcAedd87)                     |
+| **Flow**       | Buzzing                 | 0x773d238b65af58c6F4c261332134b9A708BE3F1f                                 | [FlowScan](https://evm-testnet.flowscan.io/address/0x773d238b65af58c6F4c261332134b9A708BE3F1f)                     |
+| **Flow**       | Buzzing NFT Contract    | 0x9d234b282e407Ba11BA1Ea6562b1c14A0F038D56                                 | [FlowScan](https://evm-testnet.flowscan.io/address/0x9d234b282e407Ba11BA1Ea6562b1c14A0F038D56)                     |
+| **Arbitrum**   | Buzzing                 | 0xb66f0EE93858Dc56D001a0ACCd7Bacd3BD03310c                                 | [Arbiscan](https://sepolia.arbiscan.io/address/0xb66f0EE93858Dc56D001a0ACCd7Bacd3BD03310c)                         |
+| **Arbitrum**   | Buzzing Buzz Token      | 0x1950Df5cA963b4e1905a7A447998233F25E35F56                                 | [Arbiscan](https://sepolia.arbiscan.io/address/0x1950Df5cA963b4e1905a7A447998233F25E35F56)                         |
+| **Arbitrum**   | Buzzing NFT Contract    | 0x68535Fe8c173Ecc09fC51CBDa97d0A42a8244628                                 | [Arbiscan](https://sepolia.arbiscan.io/address/0x68535Fe8c173Ecc09fC51CBDa97d0A42a8244628)                         |
+| **Base Sepolia** | Buzzing NFT Contract  | 0xdb824e62128a515fe93bca5449e4428d02538ae6                                 | [Basescan](https://sepolia.basescan.org/address/0xdb824e62128a515fe93bca5449e4428d02538ae6)                        |
+| **Base Sepolia** | Buzzing               | 0xf9Ccd4509d3049ceFe62F800a44b3d66943D0308                                 | [Basescan](https://sepolia.basescan.org/address/0xf9Ccd4509d3049ceFe62F800a44b3d66943D0308)                        |
+| **Base Sepolia** | Buzzing Token         | 0x820C809550f51F22DC83F22E63C8b4C758769E31                                 | [Basescan](https://sepolia.basescan.org/address/0x820C809550f51F22DC83F22E63C8b4C758769E31)                        |
+
 
 ## End-to-End Data Flow Summary
 
@@ -59,10 +73,7 @@
     - Users spend significant time and effort creating and engaging with content but often feel that their contributions are undervalued.
 
   
-  - If you don't have our Buzz tokens but hold USDE tokens and want to participate in pool predictions, you can easily do so by using our conversion rate contract deployed on the BSC Testnet. With a 1:12 conversion ratio, you can swap your USDE tokens for Buzz tokens and join the pool predictions seamlessly.
 
-- **4. Best Use Of Layer Zero O-App:** <br/>
-  - Develop a cross-chain application that eliminates the limitation of being restricted to a single blockchain in the prediction market. The pool  operates on the BSC Testnet (BLE), but users can place bets from other chains like Sepolia or Base. This is enabled through our adapter and the BUZZ token deployed on the source chain (BLE), with BUZZ OFT (Omnichain Fungible Token) deployed on the destination chains (Sepolia and Base). This setup allows seamless participation across multiple chains.
 
 ## Contract Overview : 
 
