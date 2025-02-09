@@ -3,7 +3,7 @@
 ![c79a33af-ccb8-4f41-a434-83ac9298e3f6](https://github.com/user-attachments/assets/51d01ffc-9824-41a0-834c-822dc244b5c7)
 
  <br/> <br/>
-# BuzziFy
+# Buzzing
 
 ### Prediction markets like Polymarket have skyrocketed in usage this year thanks to politics and sports betting. But what if there was a prediction market focused on social media and the internet arena?
 
@@ -58,20 +58,6 @@
 - Time and Effort Not Valued
     - Users spend significant time and effort creating and engaging with content but often feel that their contributions are undervalued.
 
-
-## Bounty Tracks:
-- **1. Pyth Contract:** <br/>
-  https://testnet.explorer.ethena.fi/tx/0x395422a2f7fc10ec53c4345f751d58a52ecb2eae09f7f2e1181b8dc080321a09
-
-- **2. Best Overall Application Ethena (BLE)Testnet:** <br/>
-  - BuzziFy Buzz Token(Contract Address ): 0xBFff78BB02925E4D8671D0d90B2a6330fcAedd87) :
-    https://testnet.explorer.ethena.fi/address/0xBFff78BB02925E4D8671D0d90B2a6330fcAedd87
-  - BuzziFy (Contract Address ): 0xDD0570Edb234A1753e5aD3f8Be8fa7515cdA1C12):
-    https://testnet.explorer.ethena.fi/address/0xDD0570Edb234A1753e5aD3f8Be8fa7515cdA1C12
-
-- **3. Most Innovative Used of sUSDe:** <br/>
-  - Conversion Contract: 0x371907DA46F9771189C068864115a4e84a227469) :
-    https://testnet.explorer.ethena.fi/tx/0x5d083a981a225fbfe0285de56eb95e8ba9747d002d47dfa9a35e855b264fe1b7
   
   - If you don't have our Buzz tokens but hold USDE tokens and want to participate in pool predictions, you can easily do so by using our conversion rate contract deployed on the BSC Testnet. With a 1:12 conversion ratio, you can swap your USDE tokens for Buzz tokens and join the pool predictions seamlessly.
 
