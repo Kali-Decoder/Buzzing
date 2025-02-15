@@ -38,19 +38,6 @@
 - EVM Network
 - ZKTLS , Meta LLaMA module produces questions based on the context
 
-## Bounty Tracks 
-
-| **Network**    | **Contract Name**       | **Contract Address**                                                       | **URL**                                                                                                          |
-|----------------|-------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
-| **Flow**       | Buzzing Buzz Token      | 0xBFff78BB02925E4D8671D0d90B2a6330fcAedd87                                 | [FlowScan](https://evm-testnet.flowscan.io/address/0xBFff78BB02925E4D8671D0d90B2a6330fcAedd87)                     |
-| **Flow**       | Buzzing                 | 0x773d238b65af58c6F4c261332134b9A708BE3F1f                                 | [FlowScan](https://evm-testnet.flowscan.io/address/0x773d238b65af58c6F4c261332134b9A708BE3F1f)                     |
-| **Flow**       | Buzzing NFT Contract    | 0x9d234b282e407Ba11BA1Ea6562b1c14A0F038D56                                 | [FlowScan](https://evm-testnet.flowscan.io/address/0x9d234b282e407Ba11BA1Ea6562b1c14A0F038D56)                     |
-| **Arbitrum**   | Buzzing                 | 0xb66f0EE93858Dc56D001a0ACCd7Bacd3BD03310c                                 | [Arbiscan](https://sepolia.arbiscan.io/address/0xb66f0EE93858Dc56D001a0ACCd7Bacd3BD03310c)                         |
-| **Arbitrum**   | Buzzing Buzz Token      | 0x1950Df5cA963b4e1905a7A447998233F25E35F56                                 | [Arbiscan](https://sepolia.arbiscan.io/address/0x1950Df5cA963b4e1905a7A447998233F25E35F56)                         |
-| **Arbitrum**   | Buzzing NFT Contract    | 0x68535Fe8c173Ecc09fC51CBDa97d0A42a8244628                                 | [Arbiscan](https://sepolia.arbiscan.io/address/0x68535Fe8c173Ecc09fC51CBDa97d0A42a8244628)                         |
-| **Base Sepolia** | Buzzing NFT Contract  | 0xdb824e62128a515fe93bca5449e4428d02538ae6                                 | [Basescan](https://sepolia.basescan.org/address/0xdb824e62128a515fe93bca5449e4428d02538ae6)                        |
-| **Base Sepolia** | Buzzing               | 0xf9Ccd4509d3049ceFe62F800a44b3d66943D0308                                 | [Basescan](https://sepolia.basescan.org/address/0xf9Ccd4509d3049ceFe62F800a44b3d66943D0308)                        |
-| **Base Sepolia** | Buzzing Token         | 0x820C809550f51F22DC83F22E63C8b4C758769E31                                 | [Basescan](https://sepolia.basescan.org/address/0x820C809550f51F22DC83F22E63C8b4C758769E31)                        |
 
 
 ## End-to-End Data Flow Summary
@@ -73,6 +60,12 @@
     - Users spend significant time and effort creating and engaging with content but often feel that their contributions are undervalued.
 
   
+| **Contract Name**   | **Contract Address**                                   | **URL**                                                                                  |
+|---------------------|--------------------------------------------------------|------------------------------------------------------------------------------------------|
+| Token Contract      | 0x09788a0B60eCCd3FE8B951e181B2391e177dFdab             | [MantleScan](https://sepolia.mantlescan.io/address/0x09788a0B60eCCd3FE8B951e181B2391e177dFdab) |
+| Main Contract       | 0x8Fc89849cdd463c9d75a9973C9683064FAa887e4             | [MantleScan](https://sepolia.mantlescan.io/address/0x8Fc89849cdd463c9d75a9973C9683064FAa887e4) |
+| NFT Contract        | 0x371907DA46F9771189C068864115a4e84a227469             | [MantleScan](https://sepolia.mantlescan.io/address/0x371907DA46F9771189C068864115a4e84a227469) |
+| USDE Contract       | 0xF9173645D5A391d9Fb29Fc3438024499E3AC5eD0             | [MantleScan](https://sepolia.mantlescan.io/address/0xF9173645D5A391d9Fb29Fc3438024499E3AC5eD0) |
 
 
 ## Contract Overview : 
